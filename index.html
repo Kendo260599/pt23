@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ứng dụng Phong Thủy BĐS - Quản lý Đồng Nai</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Ứng dụng Phong Thủy BĐS</h1>
+      <p class="subtitle">Phân tích cung mệnh + Quản lý khách hàng & BĐS Đồng Nai</p>
+    </header>
+
+    <main>
+      <section id="input-section" class="card">
+        <h2>1) Thông tin Khách hàng & Bất Động Sản (Đồng Nai)</h2>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="kh-ten">Họ tên khách hàng</label>
+            <input type="text" id="kh-ten" placeholder="VD: Nguyễn Văn A">
+          </div>
+
+          <div class="form-group">
+            <label for="kh-phone">Số điện thoại</label>
+            <input type="tel" id="kh-phone" placeholder="VD: 09xxxxxxxx hoặc +84..." inputmode="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="ngay-sinh">Ngày sinh khách hàng</label>
+            <input type="text" id="ngay-sinh" placeholder="VD: YYYY-MM-DD hoặc DD/MM/YYYY">
+          </div>
+
+          <div class="form-group">
+            <label for="gioi-tinh">Giới tính khách hàng</label>
+            <select id="gioi-tinh">
+              <option value="nam">Nam</option>
+              <option value="nu">Nữ</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="huong-nha">Hướng nhà/đất</label>
+            <select id="huong-nha">
+              <option value="Bắc">Bắc</option>
+              <option value="Đông Bắc">Đông Bắc</option>
+              <option value="Đông">Đông</option>
+              <option value="Đông Nam">Đông Nam</option>
+              <option value="Nam">Nam</option>
+              <option value="Tây Nam">Tây Nam</option>
+              <option value="Tây">Tây</option>
+              <option value="Tây Bắc">Tây Bắc</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="nam-xay">Năm xây/sửa (dương lịch)</label>
+            <input type="number" id="nam-xay" placeholder="2025" min="1900" max="2099">
+          </div>
+
+          <div class="form-group">
+            <label for="thang-xay">Tháng xây/sửa</label>
+            <select id="thang-xay">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+              <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+              <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+              <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+            </select>
+          </div>
+        </div>
+
+        <h3>Thông tin Bất Động Sản (Đồng Nai)</h3>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="bds-to">Số tờ</label>
+            <input type="text" id="bds-to" placeholder="VD: 123">
+          </div>
+          <div class="form-group">
+            <label for="bds-thua">Số thửa</label>
+            <input type="text" id="bds-thua" placeholder="VD: 456">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bds-quan">Quận/Huyện (Đồng Nai)</label>
+          <select id="bds-quan">
+            <option value="">Chọn quận/huyện</option>
+            <option value="bien-hoa">Thành phố Biên Hòa</option>
+            <option value="thu-dau-mot">Thành phố Thủ Dầu Một</option>
+            <option value="di-an">Quận Dĩ An</option>
+            <option value="long-khanh">Thành phố Long Khánh</option>
+            <option value="tan-uyen">Quận Tân Uyên</option>
+            <option value="dien-khanh">Huyện Diên Khánh</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bds-phuong">Phường/Xã (Đồng Nai)</label>
+          <select id="bds-phuong">
+            <option value="">Chọn phường/xã (vui lòng chọn quận/huyện trước)</option>
+            <!-- Phường/Xã Biên Hòa -->
+            <option value="an-binh" data-quan="bien-hoa">Phường An Bình</option>
+            <option value="an-khanh" data-quan="bien-hoa">Phường An Khánh</option>
+            <option value="an-loc" data-quan="bien-hoa">Phường An Lộc</option>
+            <option value="an-ngai" data-quan="bien-hoa">Phường An Ngãi</option>
+            <!-- Phường/Xã Thủ Dầu Một -->
+            <option value="phuong-1" data-quan="thu-dau-mot">Phường 1</option>
+            <option value="phuong-2" data-quan="thu-dau-mot">Phường 2</option>
+            <option value="phuong-3" data-quan="thu-dau-mot">Phường 3</option>
+            <!-- Phường/Xã Dĩ An -->
+            <option value="di-an-1" data-quan="di-an">Phường Dĩ An 1</option>
+            <option value="di-an-2" data-quan="di-an">Phường Dĩ An 2</option>
+            <option value="di-an-3" data-quan="di-an">Phường Dĩ An 3</option>
+            <!-- Phường/Xã Long Khánh -->
+            <option value="long-khanh-1" data-quan="long-khanh">Phường 1</option>
+            <option value="long-khanh-2" data-quan="long-khanh">Phường 2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bds-diachi">Địa chỉ chi tiết</label>
+          <input type="text" id="bds-diachi" placeholder="VD: Số nhà, tên đường, ...">
+        </div>
+        <div class="form-group">
+          <label for="bds-giatien">Giá tiền (VNĐ)</label>
+          <input type="number" id="bds-giatien" placeholder="VD: 2500000000">
+        </div>
+        <div class="form-group">
+          <label for="bds-note">Ghi chú BĐS (diện tích, số phòng...)</label>
+          <textarea id="bds-note" rows="3" placeholder="VD: 4x15m, 3PN, 2WC..."></textarea>
+        </div>
+
+        <h3>Môi trường & lỗi phong thủy (50+ mục)</h3>
+        <div class="list-actions">
+          <input id="issues-search" type="text" placeholder="Tìm lỗi theo từ khóa...">
+        </div>
+        <div id="issues-container" class="issues-grid">
+          <!-- sẽ được render bằng script -->
+        </div>
+
+        <div class="actions">
+          <button id="btn-analyze">Phân tích phong thủy</button>
+          <button id="btn-save" class="secondary">Lưu hồ sơ</button>
+          <button id="btn-export" class="secondary">Xuất CSV</button>
+        </div>
+      </section>
+
+      <section id="result-section" class="card">
+        <h2>2) Kết quả phân tích phong thủy</h2>
+        <div id="result-content">
+          <p class="placeholder">Nhập đủ thông tin và nhấn “Phân tích phong thủy”.</p>
+        </div>
+      </section>
+
+      <section id="profiles-section" class="card">
+        <h2>3) Danh sách hồ sơ (Khách hàng + BĐS Đồng Nai)</h2>
+        <div class="list-actions">
+          <input id="profiles-search" type="text" placeholder="Tìm theo tên, SĐT, quận/huyện...">
+          <span class="muted">Dữ liệu lưu cục bộ trên máy (LocalStorage)</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Họ tên</th>
+                <th>SĐT</th>
+                <th>Cung mệnh</th>
+                <th>Hướng nhà</th>
+                <th>Quận/Huyện</th>
+                <th>Phường/Xã</th>
+                <th>Ngày lưu</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="profiles-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 — Dữ liệu chỉ mang tính tham khảo.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
